@@ -3,9 +3,17 @@ target
 .settings/
 
 *~
+*.sw?
+
 .classpath
 .project
 
 .xml
 
 .bpmn/
+
+pom.xml.releaseBackup
+release.properties
+syntax: glob
+target/*
+

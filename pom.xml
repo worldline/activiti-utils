@@ -89,7 +89,19 @@
 
 
 	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<activiti-version>5.16.1</activiti-version>
 		<spring-version>3.1.1.RELEASE</spring-version>
 	</properties>
+
+	<scm>
+		<connection>scm:git:http://kazan.priv.atos.fr/git/activiti-utils</connection>
+		<developerConnection>scm:git:http://kazan.priv.atos.fr/git/activiti-utils</developerConnection>
+	</scm>
+
+	<parent>
+		<groupId>org.kazansource</groupId>
+		<artifactId>kazan-parent</artifactId>
+		<version>3</version>
+	</parent>
 </project>
