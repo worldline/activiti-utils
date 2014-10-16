@@ -174,6 +174,17 @@ public class MessageSenderTest extends SpringActivitiTestCase {
 	// userTaskTopCount(processInstanceId));
 	// assertEquals("subprocess deleted", 0, userTaskSubCount(subProcessId));
 	// }
+	//
+	// private long userTaskSubCount(String subProcessId) {
+	// return taskService.createTaskQuery().processInstanceId(subProcessId)
+	// .taskDefinitionKey("usertaskSub").count();
+	// }
+	//
+	// private long userTaskTopCount(String processInstanceId) {
+	// return taskService.createTaskQuery()
+	// .processInstanceId(processInstanceId)
+	// .taskDefinitionKey("usertaskTop").count();
+	// }
 
 	private ExecutionQuery receiveTaskQuery(String businessKey) {
 		return runtimeService.createExecutionQuery()
@@ -184,17 +195,6 @@ public class MessageSenderTest extends SpringActivitiTestCase {
 	private ExecutionQuery receiveTaskQueryByInstanceId(String instanceId) {
 		return runtimeService.createExecutionQuery()
 				.processInstanceId(instanceId).activityId("receivetask1");
-	}
-
-	private long userTaskSubCount(String subProcessId) {
-		return taskService.createTaskQuery().processInstanceId(subProcessId)
-				.taskDefinitionKey("usertaskSub").count();
-	}
-
-	private long userTaskTopCount(String processInstanceId) {
-		return taskService.createTaskQuery()
-				.processInstanceId(processInstanceId)
-				.taskDefinitionKey("usertaskTop").count();
 	}
 
 }
