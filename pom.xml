@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>net.atos.xa.activiti</groupId>
 	<artifactId>activiti-utils</artifactId>
-	<version>1.0.2-SNAPSHOT</version>
+	<version>1.1.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<dependencies>
 		<dependency>
@@ -83,6 +83,6 @@
 	<parent>
 		<groupId>org.kazansource</groupId>
 		<artifactId>kazan-parent</artifactId>
-		<version>3</version>
+		<version>3.3</version>
 	</parent>
 </project>
