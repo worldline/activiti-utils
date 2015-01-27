@@ -2,13 +2,11 @@ package net.atos.xa.activiti.util;
 
 import org.activiti.engine.impl.test.PluggableActivitiTestCase;
 import org.activiti.engine.test.Deployment;
-import org.junit.Test;
 import org.springframework.test.context.ContextConfiguration;
 
 @ContextConfiguration("classpath:activiti.cfg.xml")
 public class JobRetryTest extends PluggableActivitiTestCase {
 
-	@Test
 	@Deployment(resources = { "diagrams/jobretry/JobRetry.bpmn" })
 	public void testTryAgain() {
 		JobRetry jobRetry = new JobRetry(processEngine);
@@ -19,6 +17,16 @@ public class JobRetryTest extends PluggableActivitiTestCase {
 		jobRetry.setRetries(processInstanceId, 1);
 		waitForJobExecutorToProcessAllJobs(8000, 100);
 		assertEquals(3, FailingServiceTask.count);
+	}
+
+	public void testInvalidPid() {
+		JobRetry jobRetry = new JobRetry(processEngine);
+		try {
+			jobRetry.setRetries("invalid", 1);
+			fail("Should throw an exception");
+		} catch (IllegalArgumentException e) {
+			assertEquals("No job found for processInstance=invalid", e.getMessage());
+		}
 	}
 
 }
